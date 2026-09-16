@@ -1,0 +1,188 @@
+/* Local Satoshi Font Family (100% Offline, Zero CDN) */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2-variations'),
+       url('/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.5rem; /* 24px */
+  --text-2xl: 2rem; /* 32px - STRICT MAXIMUM SIZE */
+  --text-3xl: 2rem; /* Capped to 32px max */
+  
+  /* Strip out unused default sizes to enforce the strict system */
+  --text-4xl: 2rem; /* Capped to 32px max */
+  --text-5xl: 2rem; /* Capped to 32px max */
+  --text-6xl: 2rem; /* Capped to 32px max */
+  --text-7xl: 2rem; /* Capped to 32px max */
+  --text-8xl: 2rem; /* Capped to 32px max */
+  --text-9xl: 2rem; /* Capped to 32px max */
+}
+
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+
+  /* Semantic Theme Tokens */
+  --bg-app: #090D16;
+  --surface-card: #0F172A;
+  --surface-card-hover: #1E293B;
+  --border-card: rgba(51, 65, 85, 0.8);
+  --accent-primary: #6366F1;
+  --accent-emerald: #10B981;
+  --accent-rose: #F43F5E;
+  --accent-amber: #F59E0B;
+}
+
+*, *::before, *::after {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  font-style: normal !important;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Ensure RemixIcon fonts and all pseudo-elements render correctly without being overridden by universal Satoshi */
+[class^="ri-"],
+[class*=" ri-"],
+[class^="ri-"]::before,
+[class*=" ri-"]::before,
+[class^="ri-"]::after,
+[class*=" ri-"]::after,
+i[class*="ri-"],
+i[class*="ri-"]::before,
+i[class*="ri-"]::after {
+  font-family: 'remixicon' !important;
+  font-style: normal !important;
+  speak: never;
+}
+
+html, body {
+  background-color: #090D16;
+  color: #f8fafc;
+  min-height: 100vh;
+  min-height: 100dvh;
+  touch-action: manipulation;
+  overscroll-behavior-y: none;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Ensure mobile form controls never trigger iOS auto-zoom */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Safe Area Inset Helpers */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-mb {
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading, .font-display {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-style: normal !important;
+}
+
+/* Hide scrollbars globally across all elements, views, and containers */
+*::-webkit-scrollbar,
+::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-track {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+*, html, body, #root, .no-scrollbar {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox and Modern Chromium */
+}
+
+/* Tactile press response for native mobile feel */
+button:active:not(:disabled), .btn-press:active:not(:disabled) {
+  transform: scale(0.97);
+  transition: transform 0.08s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove dropdown arrow and native clock/calendar picker indicator on time inputs across entire app */
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-clear-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+}
+
+input[type="time"] {
+  -moz-appearance: textfield !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+

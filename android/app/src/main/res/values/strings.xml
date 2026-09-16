@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">REBUILD</string>
+    <string name="title_activity_main">REBUILD</string>
+    <string name="package_name">com.rebuild.app</string>
+    <string name="custom_url_scheme">com.rebuild.app</string>
+</resources>
